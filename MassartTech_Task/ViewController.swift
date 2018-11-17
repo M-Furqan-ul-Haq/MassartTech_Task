@@ -81,7 +81,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             alert.addAction(action)
             present ( alert ,  animated : true , completion : nil )
         }else{
-            performSegue(withIdentifier: "segue", sender: self)
+            let detail:DetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "detail") as! DetailViewController
+            detail.postId = "\(self.dataArray[indexPath.row].id)"
+            detail.userId = "\(self.dataArray[indexPath.row].userId)"
+            detail.titleLbl = "\(self.dataArray[indexPath.row].title)"
+            detail.body = "\(self.dataArray[indexPath.row].body)"
+            self.navigationController?.pushViewController(detail, animated: true)
+            //performSegue(withIdentifier: "segue", sender: self)
         }
         
     }

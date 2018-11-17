@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" title="MassartTech" id="zZ0-fT-h7D"/>
                     <connections>
                         <outlet property="tableView" destination="5zw-pO-LcF" id="zRA-SI-UOu"/>
-                        <segue destination="QJD-cY-nu3" kind="show" identifier="segue" id="xR8-XB-ehb"/>
+                        <segue destination="QJD-cY-nu3" kind="show" identifier="" id="xR8-XB-ehb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -74,7 +74,7 @@
         <!--Detail View Controller-->
         <scene sceneID="VgQ-Xs-qXh">
             <objects>
-                <viewController id="QJD-cY-nu3" customClass="DetailViewController" customModule="MassartTech_Task" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail" id="QJD-cY-nu3" customClass="DetailViewController" customModule="MassartTech_Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="454-w6-cAn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,17 +125,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bodyLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJi-5O-eE2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bodyLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJi-5O-eE2">
                                         <rect key="frame" x="86" y="151" width="281" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQS-Ac-Rnc">
-                                        <rect key="frame" x="86" y="108" width="281" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQS-Ac-Rnc">
+                                        <rect key="frame" x="86" y="108" width="281" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -147,7 +147,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellComments" rowHeight="200" id="51W-Wp-rDO" customClass="TableViewCellComments" customModule="MassartTech_Task" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="200" id="51W-Wp-rDO" customClass="TableViewCellComments" customModule="MassartTech_Task" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="51W-Wp-rDO" id="kFo-pg-77V">
@@ -235,6 +235,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QJD-cY-nu3" id="0HU-hr-k8C"/>
+                                    <outlet property="delegate" destination="QJD-cY-nu3" id="mbR-x9-4lp"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76Y-EL-9gz">
                                 <rect key="frame" x="0.0" y="277" width="375" height="21"/>
@@ -251,6 +255,7 @@
                     <connections>
                         <outlet property="bodyLabel" destination="iJi-5O-eE2" id="xUI-Vu-xO7"/>
                         <outlet property="postIdLabel" destination="2dW-In-SB7" id="uTL-c1-tje"/>
+                        <outlet property="tableView" destination="fwo-Ii-Hro" id="GJs-8e-WzJ"/>
                         <outlet property="titleLabel" destination="uQS-Ac-Rnc" id="HmB-w7-riz"/>
                         <outlet property="userIdLabel" destination="QeC-Tw-VRs" id="DKx-rM-ctp"/>
                     </connections>
