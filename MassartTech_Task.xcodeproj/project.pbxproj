@@ -12,6 +12,8 @@
 		D158536A21A011B6001B3C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D158536821A011B6001B3C0A /* Main.storyboard */; };
 		D158536C21A011B7001B3C0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D158536B21A011B7001B3C0A /* Assets.xcassets */; };
 		D158536F21A011B7001B3C0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D158536D21A011B7001B3C0A /* LaunchScreen.storyboard */; };
+		D158537721A01376001B3C0A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158537621A01376001B3C0A /* DetailViewController.swift */; };
+		D158537921A0142C001B3C0A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158537821A0142C001B3C0A /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D158536B21A011B7001B3C0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D158536E21A011B7001B3C0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D158537021A011B7001B3C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D158537621A01376001B3C0A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D158537821A0142C001B3C0A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				D158536421A011B6001B3C0A /* AppDelegate.swift */,
 				D158536621A011B6001B3C0A /* ViewController.swift */,
+				D158537621A01376001B3C0A /* DetailViewController.swift */,
+				D158537821A0142C001B3C0A /* TableViewCell.swift */,
 				D158536821A011B6001B3C0A /* Main.storyboard */,
 				D158536B21A011B7001B3C0A /* Assets.xcassets */,
 				D158536D21A011B7001B3C0A /* LaunchScreen.storyboard */,
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D158537721A01376001B3C0A /* DetailViewController.swift in Sources */,
+				D158537921A0142C001B3C0A /* TableViewCell.swift in Sources */,
 				D158536721A011B6001B3C0A /* ViewController.swift in Sources */,
 				D158536521A011B6001B3C0A /* AppDelegate.swift in Sources */,
 			);
@@ -283,7 +291,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HP5LCXG5P8;
 				INFOPLIST_FILE = MassartTech_Task/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +310,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HP5LCXG5P8;
 				INFOPLIST_FILE = MassartTech_Task/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
