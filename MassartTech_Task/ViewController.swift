@@ -8,15 +8,28 @@
 
 import UIKit
 
+struct jsonData: Decodable {
+    let userId:Int
+    let id:Int
+    let title:String
+    let body:String
+}
 var myindex = 0
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    var dataArray = [jsonData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getDataFromApi()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -34,7 +47,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }else{
             cell.textLabel?.text = "\(indexPath.row)"
         }
-        
         
         return (cell)
     }
@@ -55,6 +67,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             performSegue(withIdentifier: "segue", sender: self)
         }
         
+    }
+    
+    func getDataFromApi(){
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            guard let data = data else {return}
+            
+            do{
+                self.dataArray = try JSONDecoder().decode([jsonData].self, from: data)
+                
+                for mainArray in self.dataArray{
+                    print(mainArray.id," : ",mainArray.title)
+                }
+                
+                
+            }catch let jsonErr{
+                print("Error Json Serialization",jsonErr)
+            }
+            
+            }.resume()
     }
     
 }
