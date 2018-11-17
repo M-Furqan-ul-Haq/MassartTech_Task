@@ -29,11 +29,31 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LNO-In-LL9" id="kHY-y7-BfR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvU-iD-TUI">
+                                                    <rect key="frame" x="15" y="14" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l87-Vr-AQB">
+                                                    <rect key="frame" x="63" y="14" width="297" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cell_id" destination="jvU-iD-TUI" id="m9G-HH-zz9"/>
+                                            <outlet property="cell_label" destination="l87-Vr-AQB" id="eX6-ID-TdN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="FEE-1I-rTu"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="4ON-gn-h5p"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="e4a-Wu-Sxq"/>
                                 </connections>
                             </tableView>
@@ -43,6 +63,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="MassartTech" id="zZ0-fT-h7D"/>
                     <connections>
+                        <outlet property="tableView" destination="5zw-pO-LcF" id="zRA-SI-UOu"/>
                         <segue destination="QJD-cY-nu3" kind="show" identifier="segue" id="xR8-XB-ehb"/>
                     </connections>
                 </viewController>

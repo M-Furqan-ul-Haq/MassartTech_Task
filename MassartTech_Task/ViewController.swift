@@ -19,35 +19,52 @@ var myindex = 0
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var dataArray = [jsonData]()
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         getDataFromApi()
     }
     
+    func getDataFromApi(){
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            guard let data = data else {return}
+            
+            do{
+                self.dataArray = try JSONDecoder().decode([jsonData].self, from: data)
+                
+                for mainArray in self.dataArray{
+                    print(mainArray.id," : ",mainArray.title)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+                
+            }catch let jsonErr{
+                print("Error Json Serialization",jsonErr)
+            }
+            
+            }.resume()
+    }
+    
+    // Table View
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        
+        return self.dataArray.count+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if indexPath.row == 0{
-            let idLabel = UILabel(frame: CGRect(x: 20, y: 5, width: 50, height: 50))
-            idLabel.text = "Id"
-            let titleLabel = UILabel(frame: CGRect(x: 20, y: 5, width: view.frame.width-30, height: 50))
-            titleLabel.text = "Title"
-            titleLabel.textAlignment = .center
-            cell.addSubview(titleLabel)
-            cell.addSubview(idLabel)
+        let cell:TableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
+        if indexPath.row == 0 {
+            cell.cell_id.text = "Id"
+            cell.cell_label.text = "                            Title"
         }else{
-            cell.textLabel?.text = "\(indexPath.row)"
+            cell.cell_id.text = "\(dataArray[indexPath.row-1].id)"
+            cell.cell_label.text = "\(dataArray[indexPath.row-1].title)"
         }
-        
         return (cell)
     }
     
@@ -68,27 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
     }
-    
-    func getDataFromApi(){
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
-        URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            
-            guard let data = data else {return}
-            
-            do{
-                self.dataArray = try JSONDecoder().decode([jsonData].self, from: data)
-                
-                for mainArray in self.dataArray{
-                    print(mainArray.id," : ",mainArray.title)
-                }
-                
-                
-            }catch let jsonErr{
-                print("Error Json Serialization",jsonErr)
-            }
-            
-            }.resume()
-    }
+
     
 }
 
