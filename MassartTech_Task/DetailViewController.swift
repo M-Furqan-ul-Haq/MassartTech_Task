@@ -16,7 +16,12 @@ struct jsonCommentData: Decodable {
 
 class DetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var commentDataArray = [jsonCommentData]()
+    var commentOne = NSDictionary()
+    var commentTwo = NSDictionary()
+    var commentThree = NSDictionary()
+    var commentFour = NSDictionary()
+    var commentFive = NSDictionary()
+    
     @IBOutlet weak var postIdLabel: UILabel!
     @IBOutlet weak var userIdLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -40,33 +45,6 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func getCommentDataFromApi(postId:String){
-//        let url = URL(string: "https://jsonplaceholder.typicode.com/comments?postId=2")
-//        URLSession.shared.dataTask(with: url!) { (data, response, error) in
-//
-//            guard let data = data else {return}
-//
-//            do{
-//                self.commentDataArray = try JSONDecoder().decode([jsonCommentData].self, from: data)
-//
-//                for mainArray in self.commentDataArray{
-//                    print("PostId:\(mainArray.PostID)")
-//                    print("UserId:\(mainArray.Id)")
-//                    print("Name:\(mainArray.Name)")
-//                    print("Email:\(mainArray.Email)")
-//                    print("Body:\(mainArray.Body)")
-//                    print(" - - - - - -")
-////                    DispatchQueue.main.async {
-////                        self.tableView.reloadData()
-////                    }
-//                }
-//
-//            }catch let jsonErr{
-//                print("Error Json Serialization",jsonErr)
-//            }
-//
-//            }.resume()
-
-        
         
         let headers = [
             "cache-control": "no-cache",
@@ -90,8 +68,19 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                   
                     print(json)
-                    
+                    let comments = json as! NSArray
+                    print(comments)
+                    self.commentOne = comments[0] as! NSDictionary
+                    self.commentTwo = comments[1] as! NSDictionary
+                    self.commentThree = comments[2] as! NSDictionary
+                    self.commentFour = comments[3] as! NSDictionary
+                    self.commentFive = comments[4] as! NSDictionary
+                    //print((self.commentOne.value(forKey: "email"))!)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }catch{
                     print("Error")
                 }
@@ -111,15 +100,37 @@ class DetailViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableViewCellComments = tableView.dequeueReusableCell(withIdentifier: "cell2") as! TableViewCellComments
 
-        if indexPath.row >= 0 {
-               cell.commentPostId.text = "\(self.postId)"
-        cell.commentUserId.text = "70"
-        cell.commentName.text = "Furqan"
-        cell.commentEmail.text = "mfurqanulhaq1997@gmail.com"
-        cell.commentLabel.text = "comment"
-        }else{
-            
-        }
+        if indexPath.row == 0 {
+            cell.commentPostId.text = "\(self.commentOne.value(forKey: "postId"))"
+            cell.commentUserId.text = "\(self.commentOne.value(forKey: "id"))"
+            cell.commentName.text = "\(self.commentOne.value(forKey: "name"))"
+            cell.commentEmail.text = "\(self.commentOne.value(forKey: "email"))"
+            cell.commentLabel.text = "\(self.commentOne.value(forKey: "body"))"
+        }else if indexPath.row == 1{
+            cell.commentPostId.text = "\(self.commentTwo.value(forKey: "postId"))"
+            cell.commentUserId.text = "\(self.commentTwo.value(forKey: "id"))"
+            cell.commentName.text = "\(self.commentTwo.value(forKey: "name"))"
+            cell.commentEmail.text = "\(self.commentTwo.value(forKey: "email"))"
+            cell.commentLabel.text = "\(self.commentTwo.value(forKey: "body"))"
+        }else if indexPath.row == 2{
+            cell.commentPostId.text = "\(self.commentThree.value(forKey: "postId"))"
+            cell.commentUserId.text = "\(self.commentThree.value(forKey: "id"))"
+            cell.commentName.text = "\(self.commentThree.value(forKey: "name"))"
+            cell.commentEmail.text = "\(self.commentThree.value(forKey: "email"))"
+            cell.commentLabel.text = "\(self.commentThree.value(forKey: "body"))"
+        }else if indexPath.row == 3{
+            cell.commentPostId.text = "\(self.commentFour.value(forKey: "postId"))"
+            cell.commentUserId.text = "\(self.commentFour.value(forKey: "id"))"
+            cell.commentName.text = "\(self.commentFour.value(forKey: "name"))"
+            cell.commentEmail.text = "\(self.commentFour.value(forKey: "email"))"
+            cell.commentLabel.text = "\(self.commentFour.value(forKey: "body"))"
+        }else if indexPath.row == 4{
+            cell.commentPostId.text = "\(self.commentFive.value(forKey: "postId"))"
+            cell.commentUserId.text = "\(self.commentFive.value(forKey: "id"))"
+            cell.commentName.text = "\(self.commentFive.value(forKey: "name"))"
+            cell.commentEmail.text = "\(self.commentFive.value(forKey: "email"))"
+            cell.commentLabel.text = "\(self.commentFive.value(forKey: "body"))"
+        }else{}
         return cell
     }
     

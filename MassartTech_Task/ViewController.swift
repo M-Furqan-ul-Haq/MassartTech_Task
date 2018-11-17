@@ -59,10 +59,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
         if indexPath.row == 0 {
-            cell.cell_id.text = "Id"
+            cell.cell_id.text = "U Id"
             cell.cell_label.text = "                            Title"
         }else{
-            cell.cell_id.text = "\(dataArray[indexPath.row-1].id)"
+            cell.cell_id.text = "\(dataArray[indexPath.row-1].userId)"
             cell.cell_label.text = "\(dataArray[indexPath.row-1].title)"
         }
         return (cell)
