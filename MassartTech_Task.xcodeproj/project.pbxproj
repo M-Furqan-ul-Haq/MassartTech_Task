@@ -14,6 +14,7 @@
 		D158536F21A011B7001B3C0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D158536D21A011B7001B3C0A /* LaunchScreen.storyboard */; };
 		D158537721A01376001B3C0A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158537621A01376001B3C0A /* DetailViewController.swift */; };
 		D158537921A0142C001B3C0A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158537821A0142C001B3C0A /* TableViewCell.swift */; };
+		D158539B21A04CBB001B3C0A /* TableViewCellComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158539A21A04CBB001B3C0A /* TableViewCellComments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D158537021A011B7001B3C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D158537621A01376001B3C0A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D158537821A0142C001B3C0A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		D158539A21A04CBB001B3C0A /* TableViewCellComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellComments.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				D158536421A011B6001B3C0A /* AppDelegate.swift */,
 				D158536621A011B6001B3C0A /* ViewController.swift */,
 				D158537621A01376001B3C0A /* DetailViewController.swift */,
+				D158539A21A04CBB001B3C0A /* TableViewCellComments.swift */,
 				D158537821A0142C001B3C0A /* TableViewCell.swift */,
 				D158536821A011B6001B3C0A /* Main.storyboard */,
 				D158536B21A011B7001B3C0A /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 				D158537921A0142C001B3C0A /* TableViewCell.swift in Sources */,
 				D158536721A011B6001B3C0A /* ViewController.swift in Sources */,
 				D158536521A011B6001B3C0A /* AppDelegate.swift in Sources */,
+				D158539B21A04CBB001B3C0A /* TableViewCellComments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
