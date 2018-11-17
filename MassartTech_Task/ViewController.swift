@@ -71,9 +71,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myindex = indexPath.row
         
-        if myindex == 0{
+        if indexPath.row == 0{
             // Do Nothing
-        }else if myindex == 3{
+        }else if (((indexPath.row)%3) == 0){
             // Show Alert
             let alert = UIAlertController(title: "Warning", message: "Post is Locked. Please pay to unlock.", preferredStyle: .alert)
             let action = UIAlertAction (title: "OK", style: .default) { (UIAlertAction) in
@@ -82,10 +82,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             present ( alert ,  animated : true , completion : nil )
         }else{
             let detail:DetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "detail") as! DetailViewController
-            detail.postId = "\(self.dataArray[indexPath.row].id)"
-            detail.userId = "\(self.dataArray[indexPath.row].userId)"
-            detail.titleLbl = "\(self.dataArray[indexPath.row].title)"
-            detail.body = "\(self.dataArray[indexPath.row].body)"
+            detail.postId = "\(self.dataArray[indexPath.row-1].id)"
+            detail.userId = "\(self.dataArray[indexPath.row-1].userId)"
+            detail.titleLbl = "\(self.dataArray[indexPath.row-1].title)"
+            detail.body = "\(self.dataArray[indexPath.row-1].body)"
             self.navigationController?.pushViewController(detail, animated: true)
             //performSegue(withIdentifier: "segue", sender: self)
         }
